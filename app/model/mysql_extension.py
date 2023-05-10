@@ -1,4 +1,4 @@
-from sqlalchemy import Engine
+from sqlalchemy import Engine, create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -17,8 +17,6 @@ class MySQLInitializer:
 
     @staticmethod
     def create_engine():
-        from sqlalchemy import create_engine
-
         return create_engine(
             url=MySQLConfig.MYSQL_URL,
             pool_recycle=SQLAlchemyConfig.POOL_RECYCLE,
